@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "20724c7b-c0ab-4d86-ad72-e24c5a71603e",
-		"name": "Downloading completed extraction files by a schedule name",
+		"name": "DownloadScheduledExtractedFiles",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [

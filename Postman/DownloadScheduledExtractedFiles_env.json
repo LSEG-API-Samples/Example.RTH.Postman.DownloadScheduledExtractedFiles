@@ -1,6 +1,6 @@
 {
 	"id": "e769a69b-fd89-42a3-b68f-459c69b875c7",
-	"name": "Downloading completed extraction files by a schedule name",
+	"name": "DownloadScheduledExtractedFiles",
 	"values": [
 		{
 			"key": "dss-user",
