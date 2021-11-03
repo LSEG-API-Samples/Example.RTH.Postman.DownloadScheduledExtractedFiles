@@ -1,0 +1,402 @@
+{
+	"info": {
+		"_postman_id": "20724c7b-c0ab-4d86-ad72-e24c5a71603e",
+		"name": "Downloading completed extraction files by a schedule name",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "00: Authentication",
+			"item": [
+				{
+					"name": "00: User authentication",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Prefer",
+								"value": "respond-async"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Credentials\": {\r\n    \"Username\": {{dss-user}},\r\n    \"Password\": {{dss-password}}\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{protocol}}{{host}}{{api}}Authentication/RequestToken",
+							"host": [
+								"{{protocol}}{{host}}{{api}}Authentication"
+							],
+							"path": [
+								"RequestToken"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "01: Get schedule IDs",
+			"item": [
+				{
+					"name": "1.1: Get a schedule ID from a schedule name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Prefer",
+								"value": "respond-async"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{authorization}}"
+							}
+						],
+						"url": {
+							"raw": "{{protocol}}{{host}}{{api}}Extractions/ScheduleGetByName(ScheduleName='{{scheduleName}}')",
+							"host": [
+								"{{protocol}}{{host}}{{api}}Extractions"
+							],
+							"path": [
+								"ScheduleGetByName(ScheduleName='{{scheduleName}}')"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2: Get all schedules",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Prefer",
+								"value": "respond-async"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{authorization}}"
+							}
+						],
+						"url": {
+							"raw": "{{protocol}}{{host}}{{api}}Extractions/Schedules",
+							"host": [
+								"{{protocol}}{{host}}{{api}}Extractions"
+							],
+							"path": [
+								"Schedules"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "02: Get report extractions",
+			"item": [
+				{
+					"name": "2.1 Get completed report extractions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Prefer",
+								"value": "respond-async"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{authorization}}"
+							}
+						],
+						"url": {
+							"raw": "{{protocol}}{{host}}{{api}}Extractions/ReportExtractionGetCompletedByScheduleId(ScheduleId='{{scheduleId}}')",
+							"host": [
+								"{{protocol}}{{host}}{{api}}Extractions"
+							],
+							"path": [
+								"ReportExtractionGetCompletedByScheduleId(ScheduleId='{{scheduleId}}')"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.2 Get the last completed report extractions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Prefer",
+								"value": "respond-async"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{authorization}}"
+							}
+						],
+						"url": {
+							"raw": "{{protocol}}{{host}}{{api}}Extractions/Schedules('{{scheduleId}}')/LastExtraction",
+							"host": [
+								"{{protocol}}{{host}}{{api}}Extractions"
+							],
+							"path": [
+								"Schedules('{{scheduleId}}')",
+								"LastExtraction"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "03: Get extracted files",
+			"item": [
+				{
+					"name": "3.1: Get all extracted files",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Prefer",
+								"value": "respond-async"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{authorization}}"
+							}
+						],
+						"url": {
+							"raw": "{{protocol}}{{host}}{{api}}Extractions/ReportExtractions('{{reportExtractionId}}')/Files",
+							"host": [
+								"{{protocol}}{{host}}{{api}}Extractions"
+							],
+							"path": [
+								"ReportExtractions('{{reportExtractionId}}')",
+								"Files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.2: Get a RIC maintenance report file",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Prefer",
+								"value": "respond-async"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{authorization}}"
+							}
+						],
+						"url": {
+							"raw": "{{protocol}}{{host}}{{api}}Extractions/ReportExtractions('{{reportExtractionId}}')/RicMaintenanceFile",
+							"host": [
+								"{{protocol}}{{host}}{{api}}Extractions"
+							],
+							"path": [
+								"ReportExtractions('{{reportExtractionId}}')",
+								"RicMaintenanceFile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.3: Get an extraction notes file",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Prefer",
+								"value": "respond-async"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{authorization}}"
+							}
+						],
+						"url": {
+							"raw": "{{protocol}}{{host}}{{api}}Extractions/ReportExtractions('{{reportExtractionId}}')/NotesFile",
+							"host": [
+								"{{protocol}}{{host}}{{api}}Extractions"
+							],
+							"path": [
+								"ReportExtractions('{{reportExtractionId}}')",
+								"NotesFile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.4: Get a full extraction result file",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Prefer",
+								"value": "respond-async"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{authorization}}"
+							}
+						],
+						"url": {
+							"raw": "{{protocol}}{{host}}{{api}}Extractions/ReportExtractions('{{reportExtractionId}}')/FullFile",
+							"host": [
+								"{{protocol}}{{host}}{{api}}Extractions"
+							],
+							"path": [
+								"ReportExtractions('{{reportExtractionId}}')",
+								"FullFile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "04: Download files",
+			"item": [
+				{
+					"name": "4.1: Download a RIC maintenance report file",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Prefer",
+								"value": "respond-async"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{authorization}}"
+							}
+						],
+						"url": {
+							"raw": "{{protocol}}{{host}}{{api}}Extractions/ExtractedFiles('{{extractedRICFileId}}')/$value",
+							"host": [
+								"{{protocol}}{{host}}{{api}}Extractions"
+							],
+							"path": [
+								"ExtractedFiles('{{extractedRICFileId}}')",
+								"$value"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.2: Download an extraction notes file",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Prefer",
+								"value": "respond-async"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{authorization}}"
+							}
+						],
+						"url": {
+							"raw": "{{protocol}}{{host}}{{api}}Extractions/ExtractedFiles('{{extractedNoteFileId}}')/$value",
+							"host": [
+								"{{protocol}}{{host}}{{api}}Extractions"
+							],
+							"path": [
+								"ExtractedFiles('{{extractedNoteFileId}}')",
+								"$value"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.3: Download a full extraction result file",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Prefer",
+								"value": "respond-async"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{authorization}}"
+							}
+						],
+						"url": {
+							"raw": "{{protocol}}{{host}}{{api}}Extractions/ExtractedFiles('{{extractedDataFileId}}')/$value",
+							"host": [
+								"{{protocol}}{{host}}{{api}}Extractions"
+							],
+							"path": [
+								"ExtractedFiles('{{extractedDataFileId}}')",
+								"$value"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

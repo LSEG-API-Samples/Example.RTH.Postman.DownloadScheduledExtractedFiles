@@ -1,0 +1,69 @@
+{
+	"id": "e769a69b-fd89-42a3-b68f-459c69b875c7",
+	"name": "Downloading completed extraction files by a schedule name",
+	"values": [
+		{
+			"key": "dss-user",
+			"value": "\"myUser\"",
+			"enabled": true
+		},
+		{
+			"key": "dss-password",
+			"value": "\"myPassword\"",
+			"enabled": true
+		},
+		{
+			"key": "authorization",
+			"value": "_d9rzVQ7FjaUdbPIOq1lcjoY-TxFr10azIFrJMJUYMROzUuYr-VMfl0DX99VxgjgA1Vi1FN7VSjxQTmiMy",
+			"enabled": true
+		},
+		{
+			"key": "scheduleName",
+			"value": "ScheduleName",
+			"enabled": true
+		},
+		{
+			"key": "scheduleId",
+			"value": "0x0569bbf0693b2f96",
+			"enabled": true
+		},
+		{
+			"key": "reportExtractionId",
+			"value": "230580240",
+			"enabled": true
+		},
+		{
+			"key": "extractedRICFileId",
+			"value": "VjF8fDkwMzEyNjI4MQ",
+			"enabled": true
+		},
+		{
+			"key": "extractedNoteFileId",
+			"value": "VjF8fDI1NTMwMjUxMQ",
+			"enabled": true
+		},
+		{
+			"key": "extractedDataFileId",
+			"value": "VjF8fDI1NTMwMjUxMg",
+			"enabled": true
+		},
+		{
+			"key": "protocol",
+			"value": "https://",
+			"enabled": true
+		},
+		{
+			"key": "host",
+			"value": "selectapi.datascope.refinitiv.com/",
+			"enabled": true
+		},
+		{
+			"key": "api",
+			"value": "RestApi/v1/",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2021-10-26T08:48:55.496Z",
+	"_postman_exported_using": "Postman/8.12.2"
+}
